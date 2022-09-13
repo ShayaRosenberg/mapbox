@@ -97,7 +97,7 @@
       container: 'map', // container id
       style: 'mapbox://styles/mapbox/light-v10', // YOUR TURN: choose a style: https://docs.mapbox.com/api/maps/#styles
       center: [-73.995270,40.629340], // starting position [lng, lat]
-      zoom: 10,// starting zoom
+      zoom: 30,// starting zoom
       transformRequest: transformRequest
     });
 
@@ -143,9 +143,43 @@
               //set popup text
               //You can adjust the values of the popup to match the headers of your CSV.
               // For example: e.features[0].properties.Name is retrieving information from the field Name in the original CSV.
-              var description = `<h3>` + e.features[0].properties.Name + `</h3>` + `<h4>` + `<b>` + `Address: ` + `</b>` + e.features[0].properties.Address + `</h4>` + `<h4>` + `<b>` + `Phone: ` + `</b>` + e.features[0].properties.Phone + `</h4>`;
+                var description =
+    `<h3>` +
+    e.features[0].properties.Account +
+    `</h3>` +
+    `<h4>` +
+    `<b>` +
+    `Address: ` +
+    `</b>` +
+    e.features[0].properties.Address +
+    `</h4>` +
+    `<h4>` +
+    `<b>` +
+    `Members: ` +
+    `</b>` +
+    e.features[0].properties.Members +
+    `</h4>`+
+    `<h4>` +
+    `<b>` +
+    `Property Class: ` +
+    `</b>` +
+    e.features[0].properties.Property_Class +
+    `</h4>`+
+    `<h4>` +
+    `<b>` +
+    `Property Sale date: ` +
+    `</b>` +
+    e.features[0].properties.Property.Sale_date +
+    `</h4>`+
+    `<h4>` +
+    `<b>` +
+    `Property Sale date: ` +
+    `</b>` +
+    e.features[0].properties.Property.Sale_price +
+    `</h4>`;
+							
 
-              // Ensure that if the map is zoomed out such that multiple
+  // Ensure that if the map is zoomed out such that multiple
               // copies of the feature are visible, the popup appears
               // over the copy being pointed to.
               while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
